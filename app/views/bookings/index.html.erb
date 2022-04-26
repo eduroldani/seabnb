@@ -1,0 +1,12 @@
+<h1>All your bookings</h1>
+<div class="bookings">
+  <% @bookings.each do |booking| %>
+    <div class="card-product">
+      <img src="/home/leroyiman/code/leroyiman/seabnb/app/assets/images/R.jpg" />
+      <div class="card-product-infos">
+        <h2> <%= booking.boat.name %>  | <%= booking.starting_date %> - <%= booking.ending_date %> </h2>
+        <p> <%= booking.boat.description %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
