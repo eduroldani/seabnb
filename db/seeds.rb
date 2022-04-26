@@ -8,6 +8,6 @@
 
 puts "Creating Users"
 
-User.create(first_name: "Eduardo", last_name: "Roldan", email: "edu@gmail.com")
+User.create!(first_name: "Eduardo", last_name: "Roldan", email: "eduviges@gmail.com", password: "blabla")
 
 puts "Seed File Done"
