@@ -1,8 +1,23 @@
-<div class="container">
+<%# <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <h1>ALL BOATS</h1>
       <ul class="list-group mb-3">
+        <% @boats.each do |boat| %>
+          <%# <li class="list-group-item">
+            <%= link_to boat.name, boat_path(boat) %>
+          <%# </li>
+        <% end %>
+      <%# </ul>
+    </div>
+  </div>
+</div> %>
+
+<div class="card-trip">
+<%= image_tag "ahmed-zayan-sRg9N_0pn1Q-unsplash" %>
+  <div class="card-trip-infos">
+    <div>
+       <ul class="list-group mb-3">
         <% @boats.each do |boat| %>
           <li class="list-group-item">
             <%= link_to boat.name, boat_path(boat) %>
