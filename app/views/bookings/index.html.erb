@@ -2,7 +2,9 @@
 <div class="bookings">
   <% @bookings.each do |booking| %>
     <div class="card-product">
-      <img src="/home/leroyiman/code/leroyiman/seabnb/app/assets/images/R.jpg" />
+    <% if booking.boat.photo.attached? %>
+      <%= cl_image_tag booking.boat.photo.key %>
+    <% end %>
       <div class="card-product-infos">
         <h2> <%= booking.boat.name %>  | <%= booking.starting_date %> - <%= booking.ending_date %> </h2>
         <p> <%= booking.boat.description %></p>
