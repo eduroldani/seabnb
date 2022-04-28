@@ -1,7 +1,7 @@
 <div style="margin: 0 20%;">
   <h1>Create your Booking: </h1>
 
-  <%= simple_form_for(@booking) do |f| %>
+  <%= simple_form_for [@boat, @booking] do |f| %>
       <div style="display:flex;">
         <div style="width: 49%;, margin: 0 10px;">
           <%= f.input :starting_date, as: :date, html5: true %>
@@ -11,10 +11,6 @@
           <%= f.input :ending_date, as: :date, html5: true %>
         </div>
       </div>
-
-        <div style="margin: 0 10px;">
-          <%= f.association :boat %>
-        </div>
         <%= f.submit 'Submit' %>
       <% end %>
     </div>

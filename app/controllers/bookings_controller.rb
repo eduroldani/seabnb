@@ -9,20 +9,21 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @boat = Boat.find(params[:boat_id])
     @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @boat = Boat.find(params[:boat_id])
+    @booking.boat = @boat
     if current_user.nil?
-      @booking.user = User.find(52)
+      @booking.user = User.find(1)
     else
       @booking.user = current_user
     end
-    @boat = Boat.find(params[:id])
-    @booking.boat = @boat
     if @booking.save
-      redirect_to bookings_path(@booking)
+      redirect_to bookings_path
     else
       raise
     end
