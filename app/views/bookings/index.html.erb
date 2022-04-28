@@ -8,6 +8,10 @@
       <div class="card-product-infos">
         <h2> <%= booking.boat.name %>  | <%= booking.starting_date %> - <%= booking.ending_date %> </h2>
         <p> <%= booking.boat.description %></p>
+        <p>   <%= link_to "Remove",
+                  booking_path(booking.id),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></p>
       </div>
     </div>
   <% end %>
