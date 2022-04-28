@@ -12,9 +12,6 @@ class BoatsController < ApplicationController
     @boat = Boat.new
   end
 
-
-
-
   private
 
 
