@@ -1,0 +1,13 @@
+<h1>Hello New Boat</h1>
+
+<%= simple_form_for(@boat) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :location %>
+  <%= f.input :price_per_day %>
+  <%= f.input :size %>
+  <%= f.input :max_speed %>
+  <%= f.input :capacity %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit %>
+<% end %>
