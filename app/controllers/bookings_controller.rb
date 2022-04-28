@@ -14,6 +14,13 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    if current_user.nil?
+      @booking.user = User.find(52)
+    else
+      @booking.user = current_user
+    end
+    @boat = Boat.find(params[:id])
+    @booking.boat = @boat
     if @booking.save
       redirect_to bookings_path(@booking)
     else
@@ -24,6 +31,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:starting_date, :ending_date, :total_amount, :boat_id, :user_id, :review_id)
+    params.require(:booking).permit(:starting_date, :ending_date, :total_amount, :boat_id, :review_id)
   end
 end

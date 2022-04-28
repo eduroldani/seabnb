@@ -1,29 +1,19 @@
-<%# <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>ALL BOATS</h1>
-      <ul class="list-group mb-3">
-        <% @boats.each do |boat| %>
-          <%# <li class="list-group-item">
-            <%= link_to boat.name, boat_path(boat) %>
-          <%# </li>
-        <% end %>
-      <%# </ul>
+<h1>YOUR BOATS :</h1>
+<% @boats.each do |boat| %>
+  <div class="card-product p-8">
+    <img src="https://source.unsplash.com/qToVxSYXPYU" />
+    <div class="card-trip-infos mb-4">
+      <div>
+        <ul class="mb-8">
+            <li class="boat-name">
+              <%= link_to boat.name, boat_path(boat) %>
+            </li>
+            <p> <%= boat.description %> </p>
+        </ul>
+        <div class="price">
+            <h2 class="price">€99,99/day</h2>
+        </div>
+      </div>
     </div>
   </div>
-</div> %>
-
-<div class="card-trip">
-<%= image_tag "ahmed-zayan-sRg9N_0pn1Q-unsplash" %>
-  <div class="card-trip-infos">
-    <div>
-       <ul class="list-group mb-3">
-        <% @boats.each do |boat| %>
-          <li class="list-group-item">
-            <%= link_to boat.name, boat_path(boat) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>
+<% end %>
