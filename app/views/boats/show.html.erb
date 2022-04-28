@@ -1,16 +1,25 @@
 <div class="container">
 
-<h1><strong><%= @boat.name %></strong> | location: <%= @boat.location %> | <%= @boat.price_per_day %> € per day</h1>
+<h1><strong><%= @boat.name %></strong> | Location: <%= @boat.location %> | <%= @boat.price_per_day %> € per day</h1>
     <% if @boat.photo.attached? %>
       <%= cl_image_tag @boat.photo.key, class: 'boat-image' %>
     <% end %>
 
  <div class="container">
-   <h2>capacity: <%= @boat.capacity %> people | size: <%= @boat.size %> meters | max. speed: <%= @boat.max_speed %> km/h</h2>
+   <h2>Capacity: <%= @boat.capacity %> people | Size: <%= @boat.size %> meters | Max. speed: <%= @boat.max_speed %> km/h</h2>
 </div>
     <div class="container">
       <p><%= @boat.description %></p>
     </div>
+  <li class="list-group-item">
+  <p>Owner:<%=  @boat.user[:first_name]  %> </p>
+  <%= link_to '| Edit this Boat |', edit_boat_path(@boat) %>
+  <%= link_to "| Remove Boat |",
+            boat_path(@boat),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+  <%= link_to '| Go Back |', boats_path %>
+  </li>
 </div>
 
  <%= render "bookings/new" %>
