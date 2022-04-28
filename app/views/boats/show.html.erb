@@ -1,1 +1,15 @@
 <h1>This is <%= @boat.name %></h1>
+<div>
+  <div class="container">
+    <h2>This is your description of the boat: </h2>
+    <p><%= @boat.description %></p>
+    <h2>This is the price per day of your boat:</h2>
+    <p><%= @boat.price_per_day %> € per day</p>
+    <h2>This is the size of your boat:</h2>
+    <p><%= @boat.size %> meters</p>
+    <h2>This is the max. speed of your boat:</h2>
+     <p><%= @boat.max_speed %> km/h</p>
+     <h2>Pictures uploaded:</h2>
+     <img src="https://source.unsplash.com/qToVxSYXPYU" />
+  </div>
+</div>
