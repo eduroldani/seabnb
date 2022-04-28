@@ -12,8 +12,21 @@ class BoatsController < ApplicationController
     @boat = Boat.new
   end
 
-  private
+  def create
+    @boat = Boat.new(boat_params)
+    if current_user.nil?
+      @boat.user = User.find(52)
+    else
+      @boat.user = current_user
+    end
+    if @boat.save
+      redirect_to boats_path
+    else
+      raise
+    end
+  end
 
+  private
 
   def boat_params
     params.require(:boat).permit(:name, :description, :photo)

@@ -69,3 +69,5 @@ gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 #clody
 gem 'cloudinary', '~> 1.16.0'
+#faker
+gem 'faker'
