@@ -1,7 +1,9 @@
 <div class="container">
 
 <h1><strong><%= @boat.name %></strong> | location: <%= @boat.location %> | <%= @boat.price_per_day %> € per day</h1>
-<img class="boat-image" src="https://source.unsplash.com/86wR5GZJZdQ" />
+    <% if @boat.photo.attached? %>
+      <%= cl_image_tag @boat.photo.key, class: 'boat-image' %>
+    <% end %>
 
  <div class="container">
    <h2>capacity: <%= @boat.capacity %> people | size: <%= @boat.size %> meters | max. speed: <%= @boat.max_speed %> km/h</h2>

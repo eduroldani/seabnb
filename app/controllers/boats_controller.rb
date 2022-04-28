@@ -16,7 +16,7 @@ class BoatsController < ApplicationController
   def create
     @boat = Boat.new(boat_params)
     if current_user.nil?
-      @boat.user = User.find(52)
+      @boat.user = User.find(1)
     else
       @boat.user = current_user
     end
