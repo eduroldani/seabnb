@@ -26,7 +26,6 @@ def user_id
   User.all[rand(0..9)].id
 end
 
-
 10.times do
   Boat.create(name: Faker::GreekPhilosophers.name ,
      description: Faker::Lorem.paragraph  ,
