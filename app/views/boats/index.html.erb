@@ -1,19 +1,26 @@
 <h1>YOUR BOATS :</h1>
-<% @boats.each do |boat| %>
-  <div class="card-product p-8">
-    <img src="https://source.unsplash.com/qToVxSYXPYU" />
-    <div class="card-trip-infos mb-4">
-      <div>
-        <ul class="mb-8">
-            <li class="boat-name">
-              <%= link_to boat.name, boat_path(boat) %>
-            </li>
-            <p> <%= boat.description %> </p>
-        </ul>
-        <div class="price">
-            <h2 class="price">€99,99/day</h2>
+
+<div class="container">
+  <% @boats.each do |boat| %>
+    <div class="card-product p-8">
+      <img src="https://source.unsplash.com/qToVxSYXPYU" />
+      <div class="card-trip-infos mb-4">
+        <div>
+          <ul class="mb-8">
+              <li class="boat-name">
+                <%= link_to boat.name, boat_path(boat) %>
+              </li>
+              <p> <%= boat.description %> </p>
+          </ul>
+          <div class="price">
+              <h2 class="price">€99,99/day</h2>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+
+  <!-- Map token (https://www.mapbox.com/account/access-tokens/) -->
+  <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoidmFueWEtbSIsImEiOiJjbDBzc2d0a2owNGtwM2pscTA3NXhjY25sIn0.fJKAaVAg8E50C5umiz0Rdw'>
+
+</div>
