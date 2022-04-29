@@ -1,34 +1,33 @@
-.card-product {
+.card-boat {
   overflow: hidden;
-  height: 120px;
-  width: 50%;
+  height: 140px;
+  width: 100%;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
-  margin-left: 8px;
   border-radius: 5px;
   margin-bottom: 8px;
   position: relative;
 }
 
-.card-product img {
+.card-boat img {
   height: 90%;
-  width: 120px;
+  width: 140px;
   object-fit: cover;
   border-radius: 10px;
   margin: 5px;
+  padding: 8px;
 }
 
-.card-product p {
+.card-boat p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
-  margin-top: 8px;
+  margin-left: 0;
 }
 
-.card-product .card-product-infos {
+.card-boat .card-boat-infos {
   padding: 16px;
 }
 
@@ -43,5 +42,14 @@
   position: absolute;
   bottom: 0px;
   right: 0px;
-  margin-right: 8px;
+  margin-right: 22px;
+}
+
+.text-decoration{
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: black;
 }

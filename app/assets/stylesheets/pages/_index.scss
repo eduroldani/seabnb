@@ -1,3 +1,13 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "booking";
+
+.container-main {
+  display: flex;
+}
+
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0
+}
