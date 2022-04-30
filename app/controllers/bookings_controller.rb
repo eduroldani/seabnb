@@ -22,8 +22,13 @@ class BookingsController < ApplicationController
     else
       @booking.user = current_user
     end
+
+    dif = @booking.ending_date - @booking.starting_date
+    total = dif.to_i * @boat.price_per_day
+    @booking.total_amount = total
+
     if @booking.save
-      redirect_to bookings_path
+      redirect_to profiles_bookings_path
     else
       raise
     end
@@ -32,7 +37,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to bookings_path
+    redirect_to profiles_bookings_path
   end
 
   private

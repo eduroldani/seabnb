@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   root to: 'boats#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get "profiles", to: "profiles#index"
+  get "profiles/bookings", to: "profiles#bookings"
+  get "profiles/boats", to: "profiles#boats"
 
   resources :boats do
     resources :bookings, only: [:new, :create]
@@ -10,5 +13,6 @@ Rails.application.routes.draw do
 
 
   resources :bookings, only: [:index, :show, :destroy]
+
 
 end
