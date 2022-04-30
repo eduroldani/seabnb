@@ -1,21 +1,74 @@
-<% @boats.each do |boat| %>
-        <%= link_to boat_path(boat), class: 'text-decoration' do %>
-        <div class="card-boat p-8">
+<div class="profil-boat">
+  <% @boats.each do |boat| %>
+          <%= link_to boat_path(boat), class: 'text-decoration' do %>
+          <div class="profil-boat-container">
+            <% if boat.photo.attached? %>
+              <%= cl_image_tag boat.photo.key %>
+            <% end %>
+
+            <div class="profil-boat-infos">
+                  <h1><%= boat.name %></h1>
+                  <p> <%= boat.description %> </p>
+                  <div class="profile-boat-infos-container">
+                    <div>
+                      <p> <%= boat.location %> ⚓ </p>
+                    </div>
+                    <div>
+                      <p> €<%= boat.price_per_day %>/day</p>
+                    </div>
+                  </div>
+                <% end %>
+                  <div class="profile-boat-infos-container-links">
+                    <div>
+                      <p><%= link_to 'Edit', edit_boat_path(boat), class: 'remove-link-decoration'%></p>
+                    </div>
+                    <div>
+                      <p><%= link_to "Remove Boat",
+                          boat_path(boat),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" }, class: 'remove-link-decoration'%></p>
+                    </div>
+                  </div>
+            </div>
+          </div>
+      <% end %>
+</div>
+
+
+
+
+
+<div class="boats-bookings-container">
+<div class="show-boat-bookings">
+  <% @boats.each do |boat| %>
+    <%= link_to boat_path(boat), class: 'text-decoration' do %>
+      <div class="boatandtitle">
+        <div>
           <% if boat.photo.attached? %>
             <%= cl_image_tag boat.photo.key %>
           <% end %>
+        <% end %>
+        </div>
+        <div class="boatname">
+          <%= boat.name %>
+        </div>
+      </div>
 
-          <div class="card-boat-infos mb-4">
-            <ul class="mb-8">
-                <%= boat.name %>
-                <p> <%= boat.description %> </p>
-                <p> ⚓ <%= boat.location %> </p>
-                <p> capacity <%= boat.capacity %>p | size <%= boat.size %>m | speed <%= boat.max_speed %>mph </p>
-            </ul>
-            <div class="price">
-                <h2 class="price"> €<%= boat.price_per_day %>/day</h2>
-            </div>
+    <div>
+      <% boat.bookings.each do |booking| %>
+        <div class="boats-bookings-infos">
+          <div>
+            <p>User booked: <%= booking.user.email %></p>
+          </div>
+          <div>
+            <p>Date: <%= booking.starting_date %> - <%= booking.ending_date %></p>
+          </div>
+          <div>
+            <p><%= booking.total_amount %> €</p>
           </div>
         </div>
-      <% end %>
+      </div>
     <% end %>
+  <% end %>   <%# </div> %>
+  </div>
+</div>
