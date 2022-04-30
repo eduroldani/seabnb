@@ -18,7 +18,7 @@
       <p>Owner: <%=  @boat.user[:first_name]  %> </p>
 
       <% if current_user == @boat.user %>
-        <%= link_to 'Edit this Boat', edit_boat_path(@boat), class: 'btn btn-secondary' %>
+        <%= link_to 'Edit This Boat', edit_boat_path(@boat), class: 'btn btn-secondary' %>
         <%= link_to "Remove Boat",
                   boat_path(@boat),
                   method: :delete,
