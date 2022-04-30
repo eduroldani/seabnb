@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @boat = Boat.find(params[:boat_id])
     @booking.boat = @boat
     if current_user.nil?
-      @booking.user = User.find(52)
+      @booking.user = User.find(1)
     else
       @booking.user = current_user
     end

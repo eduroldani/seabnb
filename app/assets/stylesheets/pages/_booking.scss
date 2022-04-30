@@ -34,3 +34,116 @@
 .bookings{
   margin: 0 10%;
 }
+
+
+.profil-boat{
+  display: flex;
+}
+
+.profil-boat-container{
+  background-color: white;
+  border-radius: 10px;
+  width: 250px;
+  height: 250px;
+  padding: 10px;
+  margin: 0 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+}
+
+.profil-boat-container img{
+  height: 50%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+
+}
+
+.profil-boat-img{
+  height: 90%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 5px;
+  // padding: 8px;
+}
+
+.profil-boat-infos{
+  margin: 5px;
+  padding-top: 2px;
+}
+
+.profil-boat-infos h1{
+  margin-left: 0;
+  margin-bottom: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+
+}
+
+.profil-boat-infos p{
+  margin: 0;
+  padding: 0;
+}
+
+.profile-boat-infos-container{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+}
+
+
+.profile-boat-infos-container-links{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+
+}
+
+.remove-link-decoration{
+  text-decoration: none;
+  color: black;
+}
+
+.boatandtitle{
+  padding-bottom: 5px;
+  display:flex;
+  border-bottom: 1px black dotted;
+  align-items: flex-end;
+}
+
+// .show-boat-bookings{
+//   margin: 200px 0;
+// }
+
+.boatandtitle img {
+  width: 140px;
+  border-radius: 10px;
+}
+
+
+.boats-bookings-infos{
+  margin: 20px;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.boatname{
+  margin: 5px;
+  font-weight: bold;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.boats-bookings-container{
+  background-color: white;
+  border-radius: 5px;
+  margin: 50px 10px;
+  padding: 10px;
+}
+
+.border-dotted{
+  border: 1px rgba(119, 119, 119, 0.322) solid;
+}
