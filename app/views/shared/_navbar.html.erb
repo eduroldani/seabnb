@@ -11,24 +11,28 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/boats">Boats</a>
+            <a class="nav-link" href="/boats/new">Create a Boat</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Incoming Bookings</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Outgoing Bookings</a>
+            <a class="nav-link" href="/boats">View all Boats</a>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "vector-boat-icon.jpg", class: 'avatar dropdown-toggle', id: 'navbarDropdown', data: {bs_toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"}  %>
-            <%# <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="vector-boat-icon.jpg" /> %>
+
+          <% if user_signed_in? %>
+            <%= image_tag "profile_ann.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
+              <%= link_to "Profile", "/profiles", class: "dropdown-item" %>
+              <%= link_to "My Bookings", "/profiles/bookings", class: "dropdown-item" %>
+              <%= link_to "My Boats", "/profiles/boats", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
-          <!--li class="nav-item"-->
-          <!--/li-->
+          <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

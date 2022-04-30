@@ -1,0 +1,21 @@
+<% @boats.each do |boat| %>
+        <%= link_to boat_path(boat), class: 'text-decoration' do %>
+        <div class="card-boat p-8">
+          <% if boat.photo.attached? %>
+            <%= cl_image_tag boat.photo.key %>
+          <% end %>
+
+          <div class="card-boat-infos mb-4">
+            <ul class="mb-8">
+                <%= boat.name %>
+                <p> <%= boat.description %> </p>
+                <p> ⚓ <%= boat.location %> </p>
+                <p> capacity <%= boat.capacity %>p | size <%= boat.size %>m | speed <%= boat.max_speed %>mph </p>
+            </ul>
+            <div class="price">
+                <h2 class="price"> €<%= boat.price_per_day %>/day</h2>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
