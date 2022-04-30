@@ -27,7 +27,9 @@
   </div>
 
   <!-- Map token (https://www.mapbox.com/account/access-tokens/) -->
-  <div style="width: 50%;">
-    <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoidmFueWEtbSIsImEiOiJjbDBzc2d0a2owNGtwM2pscTA3NXhjY25sIn0.fJKAaVAg8E50C5umiz0Rdw'>
+  <div class="maps" style="width: 100%; height: 600px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
