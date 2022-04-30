@@ -13,6 +13,8 @@ User.destroy_all
 
 puts "Creating 10 Users and 10 Boats"
 
+
+
 10.times do
 User.create(first_name: Faker::Name.first_name ,
    last_name: Faker::Name.last_name  ,
@@ -23,13 +25,13 @@ User.create(first_name: Faker::Name.first_name ,
 end
 
 def user_id
-  User.all[rand(0..9)].id
+  User.all.sample.id
 end
 
 10.times do
   Boat.create(name: Faker::GreekPhilosophers.name ,
      description: Faker::Lorem.paragraph  ,
-     location: Faker::Address.city ,
+     location: ["16 Villa Gaudelet, Paris", "Gethsemanestraße 6, Berlin", "Am Rebberg 30, Gundelfingen", "Jambo Beach 27, Viale Tevere, Cavallino-Treporti, Venice, Italy"].sample ,
      price_per_day: Faker::Number.between(from: 50, to: 500),
      size: Faker::Number.between(from: 10, to: 100),
      max_speed: Faker::Number.number(digits: 3),
