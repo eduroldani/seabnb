@@ -1,15 +1,30 @@
-<h1>This is <%= @boat.name %></h1>
-<div>
-  <div class="container">
-    <h2>This is your description of the boat: </h2>
-    <p><%= @boat.description %></p>
-    <h2>This is the price per day of your boat:</h2>
-    <p><%= @boat.price_per_day %> € per day</p>
-    <h2>This is the size of your boat:</h2>
-    <p><%= @boat.size %> meters</p>
-    <h2>This is the max. speed of your boat:</h2>
-     <p><%= @boat.max_speed %> km/h</p>
-     <h2>Pictures uploaded:</h2>
-     <img src="https://source.unsplash.com/qToVxSYXPYU" />
+<div class="container" style="margin-top: 2%;">
+
+<h1><strong><%= @boat.name %></strong> | Location: <%= @boat.location %> | <%= @boat.price_per_day %> € per day</h1>
+    <% if @boat.photo.attached? %>
+      <%= cl_image_tag @boat.photo.key, class: 'boat-image' %>
+    <% end %>
+
+ <div class="container" style="margin-top: 10px;">
+   <h2>Capacity: <%= @boat.capacity %> people | Size: <%= @boat.size %> meters | Max. speed: <%= @boat.max_speed %> km/h</h2>
+</div>
+    <div class="container" style="margin-top: 16px;">
+      <p><%= @boat.description %></p>
+    </div>
+
+<div class="container-forms">
+  <div style="margin: 2% 5%;">
+    <li class="list-group-item form-owner">
+      <p>Owner: <%=  @boat.user[:first_name]  %> </p>
+      <%= link_to 'Edit this Boat', edit_boat_path(@boat), class: 'btn btn-secondary' %>
+      <%= link_to "Remove Boat",
+                boat_path(@boat),
+                method: :delete,
+                data: { confirm: "Are you sure?" }, class: 'btn btn-secondary'%>
+      <%= link_to 'Go Back', boats_path, class: 'btn btn-secondary'%>
+    </li>
   </div>
+
+
+ <%= render "bookings/new" %>
 </div>

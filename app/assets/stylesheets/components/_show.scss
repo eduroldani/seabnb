@@ -1,0 +1,30 @@
+h1 {
+  font-size: large;
+}
+
+h2 {
+  font-size: large;
+}
+
+p {
+  font-size: small;
+}
+
+.boat-image {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  margin: 8px;
+  border-color: gray;
+  border-style: solid;
+}
+
+.container-forms {
+  display: flex;
+}
+
+.form-owner {
+  background-color: rgb(251, 251, 251);
+  padding-bottom: 16px;
+}

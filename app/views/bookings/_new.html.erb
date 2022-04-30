@@ -1,9 +1,9 @@
-<div style="margin: 0 20%;">
+<div class = 'card p-3 bg-light' style="margin: 2% 5%;">
   <h1>Create your Booking: </h1>
 
-  <%= simple_form_for(@booking) do |f| %>
+  <%= simple_form_for [@boat, @booking] do |f| %>
       <div style="display:flex;">
-        <div style="width: 49%;, margin: 0 10px;">
+        <div style="width: 49%;, margin: 0 10px; margin-left: 8px;">
           <%= f.input :starting_date, as: :date, html5: true %>
         </div>
 
@@ -11,10 +11,8 @@
           <%= f.input :ending_date, as: :date, html5: true %>
         </div>
       </div>
-
-        <div style="margin: 0 10px;">
-          <%= f.association :boat %>
-        </div>
-        <%= f.submit 'Submit' %>
+      <div style="margin-left: 12px;">
+        <%= f.submit 'Submit', class: 'btn btn-secondary' %>
+      </div>
       <% end %>
-    </div>
+</div>
