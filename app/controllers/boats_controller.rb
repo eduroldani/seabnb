@@ -16,13 +16,17 @@ class BoatsController < ApplicationController
   end
 
   def new
+    if current_user.nil?
+      redirect_to new_user_session_path
+    else
     @boat = Boat.new
+    end
   end
 
   def create
     @boat = Boat.new(boat_params)
     if current_user.nil?
-      @boat.user = User.find(1)
+      @boat.user = User.find(63)
     else
       @boat.user = current_user
     end
@@ -56,7 +60,7 @@ class BoatsController < ApplicationController
 
 
   def boat_params
-    params.require(:boat).permit(:name, :description, :photo)
+    params.require(:boat).permit(:name, :location, :price_per_day, :size, :max_speed, :capacity,  :description, :photo)
   end
 
 
