@@ -1,6 +1,6 @@
 <div class="container" style="margin-top: 2%;">
 
-<h1><strong><%= @boat.name %></strong> | Location: <%= @boat.location %> | <%= @boat.price_per_day %> € per day</h1>
+<h1 class="container"><strong><%= @boat.name %></strong> | Location: <%= @boat.location %> | <%= @boat.price_per_day %> € per day</h1>
     <% if @boat.photo.attached? %>
       <%= cl_image_tag @boat.photo.key, class: 'boat-image' %>
     <% end %>
