@@ -1,7 +1,11 @@
 class BoatsController < ApplicationController
 
   def index
-    @boats = Boat.all
+    if params[:query].present?
+      @boats = Boat.search_by_name_and_location(params[:query])
+    else
+      @boats = Boat.all
+    end
     @markers = @boats.geocoded.map do |boat|
       {
         lat: boat.latitude,

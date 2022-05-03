@@ -73,4 +73,5 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'faker'
 #geocoder-map
 gem "geocoder"
-
+#searchbar gem
+gem 'pg_search', '~> 2.3.0'
