@@ -1,5 +1,3 @@
-
-<h3>100+ boats in your area</h3>
 <div class="search-form-index">
   <div class="search-form-input">
     <%= form_tag boats_path, method: :get do %>
@@ -14,6 +12,7 @@
   </div>
   <% end %>
 </div>
+<h3> <span>⛵️</span> More than <%= @boats.count %> amazing boats in your area, choose your perfect one:</h3>
 <div class="container-main">
   <div class="container-boats" style="width: 70%">
     <% @boats.each do |boat| %>
