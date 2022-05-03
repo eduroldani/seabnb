@@ -1,4 +1,17 @@
-
+<div class="search-form-index">
+  <div class="search-form-input">
+    <%= form_tag boats_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a Boat"
+      %>
+  </div>
+  <div>
+    <%= submit_tag "Search", class: "btn btn-primary searchbutton" %>
+  </div>
+  <% end %>
+</div>
 <h3> <span>⛵️</span> More than <%= @boats.count %> amazing boats in your area, choose your perfect one:</h3>
 <div class="container-main">
   <div class="container-boats" style="width: 70%">
