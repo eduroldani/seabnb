@@ -2,8 +2,10 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="/boats">
       <%# <img src="images/vector-boat-icon.jpg" /> %>
-      <%= image_tag "SeaBnBLOGO.jpg" %>
+
+      <%= image_tag "new_logo3.jpg" %>
     </a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,10 +13,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-            <a class="nav-link" style="color:#F4F1DE" href="/boats/new">Upload a Boat</a>
+            <a class="nav-link font" style="color:#FFFFFF" href="/boats/new">Create a Boat</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="color:#F4F1DE" href="/boats">View all Available Boats</a>
+            <a class="nav-link font" style="color:#FFFFFF" href="/boats">View all Boats </a>
           </li>
           <li class="nav-item dropdown">
 
@@ -30,7 +32,7 @@
           </li>
           <% else %>
           <li class="nav-item">
-            <div id="links">
+            <div id="links" class="font">
               <%= link_to "Login", new_user_session_path, class: "nav-link" %>
             </div>
           </li>

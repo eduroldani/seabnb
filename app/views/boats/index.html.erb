@@ -1,49 +1,47 @@
-<div class="background">
-<div class="search-form-index">
-  <div class="search-form-input">
-    <%= form_tag boats_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a Boat"
-      %>
+  <div class="search-form-index">
+    <div class="search-form-input font">
+      <%= form_tag boats_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control input-field",
+          placeholder: "Find a Boat"
+        %>
   </div>
-  <div>
-    <%= submit_tag "Search", class: "btn btn-primary searchbutton" %>
+
+    <div>
+      <%= submit_tag "Search", class: "btn search-button-style font" %>
+    </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
-<h3> More than <%= @boats.count %> amazing <span>⛵️</span>  in your area, choose your perfect one:</h3>
 
-<div class="container-main">
-  <div class="container-boats" style="width: 70%">
-    <% @boats.each do |boat| %>
-      <%= link_to boat_path(boat), class: 'text-decoration' do %>
-        <div class="card-boat p-8">
-          <% if boat.photo.attached? %>
-            <%= cl_image_tag boat.photo.key %>
-          <% end %>
+  <h3 class="font h3-index" nobr><%= image_tag "new_logo.jpg", class: "Logo-index-oriange" %> More than <%= @boats.count %> amazing boats in your area,<%= image_tag "choose2.jpg", class:"handwriting-index"%></h3>
+  <div class="container-main">
+    <div class="container-boats font" style="width: 70%">
+      <% @boats.each do |boat| %>
+        <%= link_to boat_path(boat), class: 'text-decoration' do %>
+          <div class="card-boat p-8 boatscard-style">
+            <% if boat.photo.attached? %>
+              <%= cl_image_tag boat.photo.key %>
+            <% end %>
 
-            <div class="card-boat-infos mb-4">
-              <ul class="mb-8">
-                  <%= boat.name %>
-                  <p> <span>📍</span> <%= boat.location %> </p>
-                  <p> <span>👨‍👨‍👧</span> <%= boat.capacity %>p | <span>📏</span> <%= boat.size %>m | <span>⏳</span><%= boat.max_speed %>mph </p>
-              </ul>
-              <div class="price">
-                  <h2 class="price"> €<%= boat.price_per_day %>/day</h2>
-              </div>
-            </div>
-          </div>
-        <% end %>
+              <div class="card-boat-infos mb-4 font">
+                <ul class="mb-8">
+                    <%= boat.name %>
+                    <p> <%= boat.description %> </p>
+                    <p> ⚓ <%= boat.location %> </p>
+                    <p> capacity <%= boat.capacity %>p | size <%= boat.size %>m | speed <%= boat.max_speed %>mph </p>
+                </ul>
+                <div class="price font">
+                    <h2 class="price"> €<%= boat.price_per_day %>/day</h2>
+                </div>
       <% end %>
     </div>
 
-    <!-- Map token (https://www.mapbox.com/account/access-tokens/) -->
-    <div class="maps" style="width: 100%; height: 600px;"
-        data-controller="mapbox"
-        data-mapbox-markers-value="<%= @markers.to_json %>"
-        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+
+      <!-- Map token (https://www.mapbox.com/account/access-tokens/) -->
+      <div class="maps" style="width: 100%; height: 600px;"
+          data-controller="mapbox"
+          data-mapbox-markers-value="<%= @markers.to_json %>"
+          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
   </div>
-</div>
