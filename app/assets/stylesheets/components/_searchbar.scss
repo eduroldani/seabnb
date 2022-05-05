@@ -1,5 +1,5 @@
 .search-form-index{
-  margin: 20px 20%;
+  margin: 30px 20%;
   display: flex;
   width: 100%
 }
@@ -10,4 +10,14 @@
 
 .searchbutton{
   width: 100%
+}
+
+.search-button-style {
+  // background-color: #f1742a;
+  background-image: linear-gradient(to right, #f7c37f, #fea46f);
+  color: #ffffff;
+}
+
+.input-field {
+  background-color: #ffffff;
 }
