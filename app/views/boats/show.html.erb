@@ -45,12 +45,6 @@
     <% end %>
   </div>
 
-  <% if user_signed_in? == false %>
-    <%= link_to 'SIGN IN TO BOOK', new_user_session_path, class: 'btn btn-secondary'%>
-  <% elsif current_user != @boat.user%>
-    <%= render "bookings/new" %>
-  <% end %>
-
 </div>
 <br><br><br><br><br><br><br><br>
 <div>
