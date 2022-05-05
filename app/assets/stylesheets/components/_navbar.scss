@@ -3,6 +3,8 @@
   background: #3D405B;
   padding-right: 48px;
   padding-left: 48px;
+  background-color: #3D405B;
+  transition: 0.5s background-color ease
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,4 +17,8 @@
 
 #links a {
   color:#F4F1DE;
+}
+
+.navbar-lewagon-white {
+  background-color: white;
 }

@@ -1,5 +1,5 @@
-<div class = 'card p-3 bg-light' style="margin: 2% 5%;">
-  <h1>Create your Booking: </h1>
+<div class = 'card p-3 bg-light'>
+  <h1>Book: <%= @boat.name %> </h1>
 
   <%= simple_form_for [@boat, @booking] do |f| %>
       <div style="display:flex;">
@@ -12,7 +12,7 @@
         </div>
       </div>
       <div style="margin-left: 12px;">
-        <%= f.submit 'Submit', class: 'btn btn-secondary' %>
+        <%= f.submit 'Book', class: 'btn btn-secondary' %>
       </div>
       <% end %>
 </div>
