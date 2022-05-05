@@ -22,10 +22,29 @@
   top: 0
 }
 
+.mapboxgl-ctrl-geocoder {
+  max-width: none;
+  width: 100%;
+  border: 1px solid lightgrey;
+  box-shadow: none;
+
+  >svg {
+    display: none;
+  }
+
+  .mapboxgl-ctrl-geocoder--input {
+    padding: 12px;
+
+    &::placeholder {
+      visibility: hidden;
+    }
+  }
+
 ul {
   padding-left: 0;
 }
 
 p {
   margin-bottom: 0;
+
 }
