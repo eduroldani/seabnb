@@ -28,6 +28,8 @@
         <%= link_to 'Go Back', boats_path, class: 'btn btn-secondary'%>
       <% end %>
 
+      <%= link_to 'Leave a review', new_boat_review_path(@boat) %>
+
     </li>
   </div>
 
@@ -36,4 +38,10 @@
   <% elsif current_user != @boat.user%>
     <%= render "bookings/new" %>
   <% end %>
+
+  <ul class="list-group">
+  <% @boat.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %> <%= review.rating %></li>
+  <% end %>
+</ul>
 </div>
