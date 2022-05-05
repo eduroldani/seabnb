@@ -1,0 +1,54 @@
+.recom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 8px;
+}
+
+.card-recom {
+  overflow: hidden;
+  height: fit-content;
+  width: fit-content;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin-bottom: 8px;
+  position: relative;
+  padding: 8px;
+}
+
+.card-recom img {
+  height: 50%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+
+.recom-carac {
+  display: flex;
+  justify-content: center;
+
+}
+
+.recom-carac p {
+  margin: 8px;
+  background-color: #3D405B;
+  padding: 12px;
+  border-radius: 5px;
+  color: white;
+  flex-grow: 1;
+  text-align: center;
+
+}
+
+.card-recom-info {
+  padding: 16px;
+}
+
+
+.card-recom-info h4 {
+  font-size: 16px;
+}

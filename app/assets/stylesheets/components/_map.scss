@@ -1,18 +1,23 @@
 .mapboxgl-popup {
-  max-width: 200px;
+  max-width: 300px;
+  max-height: 500px;
+  border-radius: 5px;
 }
 
 .mapboxgl-popup-content {
-  text-align: center;
+  text-align: left;
   font-family: "Open Sans", sans-serif;
+  padding: 18px 18px 0px;
 }
 
 .maps {
   height: 100vh;
-  margin-left: 8px;
+  margin-left: 10px;
   border-radius: 5px;
-  border-color: #888dbb;
+  border: #113b59;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
   border-style: solid;
+  border-width: 2px;
   position: sticky;
   top: 0
 }
@@ -34,4 +39,12 @@
       visibility: hidden;
     }
   }
+
+ul {
+  padding-left: 0;
+}
+
+p {
+  margin-bottom: 0;
+
 }

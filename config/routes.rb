@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: 'boats#index'
+  root to: 'boats#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "profiles", to: "profiles#index"
   get "profiles/bookings", to: "profiles#bookings"
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :boats do
     resources :bookings, only: [:new, :create]
+    resources :reviews, only: [ :new, :create ]
   end
 
 

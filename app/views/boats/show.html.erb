@@ -1,22 +1,12 @@
-<div class="container" style="margin-top: 2%;">
+<div style="margin-top: 2%">
 
-<h1 class="container"><strong><%= @boat.name %></strong> | Location: <%= @boat.location %> | <%= @boat.price_per_day %> € per day</h1>
-    <% if @boat.photo.attached? %>
-      <%= cl_image_tag @boat.photo.key, class: 'boat-image' %>
-    <% end %>
-
- <div class="container" style="margin-top: 10px;">
-   <h2>Capacity: <%= @boat.capacity %> people | Size: <%= @boat.size %> meters | Max. speed: <%= @boat.max_speed %> km/h</h2>
-</div>
-    <div class="container" style="margin-top: 16px;">
-      <p><%= @boat.description %></p>
-    </div>
-
-<div class="container-forms">
-  <div style="margin: 2% 5%;">
-    <li class="list-group-item form-owner">
-      <p>Owner: <%=  @boat.user[:first_name]  %> </p>
-
+ <li class="list-group-item form-owner mb-2">
+      <h1><strong><%= @boat.name %></strong></h1>
+      <p>Owner: <% if @boat.user[:first_name].nil? %>
+      <%= "Missing Name" %>
+      <% else %>
+      <%=  @boat.user[:first_name]  %>
+      <% end %> </p>
       <% if current_user == @boat.user %>
         <%= link_to 'Edit This Boat', edit_boat_path(@boat), class: 'btn btn-secondary' %>
         <%= link_to "Remove Boat",
@@ -26,14 +16,83 @@
         <%= link_to 'Go Back', profiles_boats_path, class: 'btn btn-secondary'%>
       <% else %>
         <%= link_to 'Go Back', boats_path, class: 'btn btn-secondary'%>
+        <%= link_to 'Leave a review', new_boat_review_path(@boat),class: 'btn btn-secondary' %>
       <% end %>
-
     </li>
+
+
+    <% if @boat.photo.attached? %>
+      <%= cl_image_tag @boat.photo.key, class: 'boat-image' %>
+    <% end %>
+
+    <div>
+      <h2>This Boat is located in: <%= @boat.location %> and cost: <%= @boat.price_per_day %> € per day</h2>
+      <br>
+      <h2>Capacity of the boat: <%= @boat.capacity %> tripulants<br> Boat size: <%= @boat.size %> meters<br> Max. speed: <%= @boat.max_speed %> km/h</h2>
+    </div>
+    <div>
+      <h3>Boat Description: </h2><br><h4><%= @boat.description %></h4>
+    </div>
+
+<br><br><br>
+
+<div class="medium">
+  <div class="container-forms">
+    <% if user_signed_in? == false %>
+      <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-secondary'%>
+    <% elsif current_user != @boat.user%>
+      <%= render "bookings/new" %>
+    <% end %>
   </div>
 
-  <% if user_signed_in? == false %>
-    <%= link_to 'SIGN IN TO BOOK', new_user_session_path, class: 'btn btn-secondary'%>
-  <% elsif current_user != @boat.user%>
-    <%= render "bookings/new" %>
-  <% end %>
 </div>
+<br><br><br><br><br><br><br><br>
+<div>
+  <h1>Feeback from previus Bookings:</h1>
+</div>
+ <ul class="list-groups" style="display:flex;">
+    <% @boat.reviews.each do |review| %>
+      <li class="list-group-items">
+        <div class="review-div">
+          <div class="list-review-div">
+            "<%= review.content %>"
+          </div>
+          <div class="list-review-div">
+            <% review.rating.times do  %>
+              <i class="fa-solid fa-star"></i>
+            <% end %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+<br><br><br><br><br><br><br><br>
+
+<div>
+  <h1>Check Other Boats:</h1>
+</div>
+
+<div class="recom">
+    <% @boats.each do |boat| %>
+      <%= link_to boat_path(boat), class: 'text-decoration' do %>
+        <div class="card-recom">
+            <% if boat.photo.attached? %>
+              <%= cl_image_tag boat.photo.key %>
+            <% else %>
+             <%= cl_image_tag ("aiftstx1dwmh2dbf1vop88jkxcup") %>
+            <% end %>
+          <div class="card-recom-info">
+              <h4><strong><%= boat.name %></strong></h4>
+              <h4><%=boat.price_per_day %> Euros</h4>
+              <h4><span>📍</span> <%= boat.location %></h4>
+          </div>
+          <div class="recom-carac">
+                  <p><span>👨‍👨‍👧</span><%=boat.capacity%>p</p>
+                  <p><span>📏</span><%= boat.size %>m</p>
+                  <p><span>⏳</span><%= boat.max_speed%>Km/h</p>
+          </div>
+          </div>
+    <% end %>
+    <% end %>
+  </div>
