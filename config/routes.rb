@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :boats do
     resources :bookings, only: [:new, :create]
+    resources :reviews, only: [ :new, :create ]
   end
 
 
