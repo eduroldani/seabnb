@@ -15,7 +15,16 @@
       <p>I love the sea! And this is my profile</p>
       <p><%= link_to "Edit Profile", edit_user_registration_path %></p>
     </div>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-
+    <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
+    <div class="card-trip-user avatar-bordered">
+      <% if @user.photo.attached? %>
+        <%=
+          cl_image_tag(@user.photo.key, transformation: [
+            aspect_radio: 1,
+            width: 100, height: 100, crop: :thumb, gravity: :face, zoom: 1, effect: :outline,effect: :shadow,radius: :max, x: 0, y:0
+            ])
+        %>
+      <% end %>
+    </div>
   </div>
 </div>

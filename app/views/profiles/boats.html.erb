@@ -1,3 +1,4 @@
+<h1>Find here all your boats:</h1>
 <div class="profil-boat">
   <% @boats.each do |boat| %>
           <%= link_to boat_path(boat), class: 'text-decoration' do %>
@@ -8,7 +9,6 @@
 
             <div class="profil-boat-infos">
                   <h1><%= boat.name %></h1>
-                  <p> <%= boat.description %> </p>
                   <div class="profile-boat-infos-container">
                     <div>
                       <p> <%= boat.location %> ⚓ </p>
