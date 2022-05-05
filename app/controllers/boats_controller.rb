@@ -10,7 +10,8 @@ class BoatsController < ApplicationController
       {
         lat: boat.latitude,
         lng: boat.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { boat: boat })
+        info_window: render_to_string(partial: "info_window", locals: { boat: boat }),
+        image_url: helpers.asset_url("anchor3.png")
       }
     end
   end
