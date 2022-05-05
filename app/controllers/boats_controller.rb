@@ -18,6 +18,12 @@ class BoatsController < ApplicationController
   def show
     @boats = Boat.all
     @boat = Boat.find(params[:id])
+    @markers = [{
+        lat: @boat.latitude,
+        lng: @boat.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { boat: @boat })
+      }]
+
     @booking = Booking.new
   end
 

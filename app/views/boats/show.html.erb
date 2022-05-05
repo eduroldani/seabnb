@@ -34,6 +34,13 @@
       <h3>Boat Description: </h2><br><h4><%= @boat.description %></h4>
     </div>
 
+
+    <div class="container" style="width: 100%; height: 400px;"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
 <br><br><br>
 
 <div class="medium">
