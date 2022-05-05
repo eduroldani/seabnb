@@ -1,0 +1,31 @@
+.list-groups{
+  list-style-type: none;
+}
+
+.list-group-items{
+  background-color: aliceblue;
+  border-radius: 5px;
+  padding: 20px;
+  width: 300px;
+  height: 100%;
+  margin: 0 5px;
+}
+
+
+.review-div{
+  flex: 1;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  overflow: hidden;
+  flex-flow: column;
+  // justify-content: center;
+  // align-items: center;
+
+}
+
+.list-review-div{
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}

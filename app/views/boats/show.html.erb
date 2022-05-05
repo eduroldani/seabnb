@@ -56,12 +56,23 @@
 <div>
   <h1>Feeback from previus Bookings:</h1>
 </div>
- <ul class="list-group">
-  <% @boat.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.content %> <%= review.rating %></li>
-  <% end %>
-</ul>
-  
+ <ul class="list-groups" style="display:flex;">
+    <% @boat.reviews.each do |review| %>
+      <li class="list-group-items">
+        <div class="review-div">
+          <div class="list-review-div">
+            "<%= review.content %>"
+          </div>
+          <div class="list-review-div">
+            <% review.rating.times do  %>
+              <i class="fa-solid fa-star"></i>
+            <% end %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
 <br><br><br><br><br><br><br><br>
 
 <div>
