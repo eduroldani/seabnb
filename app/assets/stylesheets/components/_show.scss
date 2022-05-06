@@ -65,3 +65,10 @@ p {
     font-size: 32px;
   }
 }
+
+.show-container {
+  display: flex;
+  margin-top: 16px;
+  justify-content:space-between;
+  align-items: stretch;
+}

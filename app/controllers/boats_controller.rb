@@ -17,8 +17,10 @@ class BoatsController < ApplicationController
   end
 
   def show
-    @boats = Boat.all
     @boat = Boat.find(params[:id])
+
+    @boats = Boat.where("price_per_day < ?" , @boat.price_per_day)
+
     @markers = [{
         lat: @boat.latitude,
         lng: @boat.longitude,
@@ -73,7 +75,7 @@ class BoatsController < ApplicationController
 
 
   def boat_params
-    params.require(:boat).permit(:name, :location, :price_per_day, :size, :max_speed, :capacity,  :description, :photo)
+    params.require(:boat).permit(:name, :location, :price_per_day, :size, :max_speed, :capacity, :description, :photo)
   end
 
 
