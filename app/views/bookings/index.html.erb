@@ -1,18 +1,20 @@
-<h1>All your bookings</h1>
-<div class="bookings">
-  <% @bookings.each do |booking| %>
-    <div class="card-product">
-    <% if booking.boat.photo.attached? %>
-      <%= cl_image_tag booking.boat.photo.key %>
-    <% end %>
-      <div class="card-product-infos">
-        <h2> <%= booking.boat.name %>  | <%= booking.starting_date %> - <%= booking.ending_date %> </h2>
-        <p> <%= booking.boat.description %></p>
-        <p>   <%= link_to "Remove",
-                  booking_path(booking.id),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %></p>
+<div class="container">
+  <h1>All your bookings</h1>
+  <div class="bookings">
+    <% @bookings.each do |booking| %>
+      <div class="card-product">
+      <% if booking.boat.photo.attached? %>
+        <%= cl_image_tag booking.boat.photo.key %>
+      <% end %>
+        <div class="card-product-infos">
+          <h2> <%= booking.boat.name %>  | <%= booking.starting_date %> - <%= booking.ending_date %> </h2>
+          <p> <%= booking.boat.description %></p>
+          <p>   <%= link_to "Remove",
+                    booking_path(booking.id),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %></p>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
