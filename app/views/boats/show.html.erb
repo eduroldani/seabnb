@@ -11,15 +11,15 @@
         <% end %> </p>
         <div id="buttons-show">
           <% if current_user == @boat.user %>
-            <%= link_to 'Edit This Boat', edit_boat_path(@boat), class: 'btn btn-light' %>
+            <%= link_to 'Edit This Boat', edit_boat_path(@boat), class: 'btn btn-light btn-costom' %>
             <%= link_to "Remove Boat",
                       boat_path(@boat),
                       method: :delete,
-                      data: { confirm: "Are you sure?" }, class: 'btn btn-light'%>
-            <%= link_to 'Go Back', profiles_boats_path, class: 'btn btn-light'%>
+                      data: { confirm: "Are you sure?" }, class: 'btn btn-light btn-costom'%>
+            <%= link_to 'Go Back', profiles_boats_path, class: 'btn btn-light btn-costom'%>
           <% else %>
-            <%= link_to 'Go Back', boats_path, class: 'btn btn-secondary'%>
-            <%= link_to 'Leave a review', new_boat_review_path(@boat),class: 'btn btn-light' %>
+            <%= link_to 'Go Back', boats_path, class: 'btn btn-light btn-costom'%>
+            <%= link_to 'Leave a review', new_boat_review_path(@boat),class: 'btn btn-light btn-costom' %>
           <% end %>
         </li>
       </div>
@@ -30,13 +30,11 @@
       <% end %>
 
       <div>
-        <h2>This Boat is located in: <%= @boat.location %> and cost: <%= @boat.price_per_day %> € per day</h2>
-        <br>
-        <h2>Capacity of the boat: <%= @boat.capacity %> tripulants<br> Boat size: <%= @boat.size %> meters<br> Max. speed: <%= @boat.max_speed %> km/h</h2>
+        <h2 id="short-info">Location: <%= @boat.location %> &nbsp || &nbsp Price: <%= @boat.price_per_day %> € per day &nbsp || &nbsp Capacity: <%= @boat.capacity %> tripulants  &nbsp || &nbsp Boat size: <%= @boat.size %> meters &nbsp || &nbsp Max. speed: <%= @boat.max_speed %> km/h</h2>
       </div>
       <div>
       <br>
-        <h2>Boat Description:</h2>
+        <h2>Boat description:</h2>
         <h4 id="boat-description"><%= @boat.description %></h4>
       </div>
 
@@ -54,7 +52,7 @@
 </div>
 <br><br><br><br><br><br><br><br>
 <div>
-  <h2>Feeback from previous Bookings:</h1>
+  <h2>Feeback from previous bookings:</h1>
 </div>
  <ul class="list-groups" style="display:flex;">
     <% @boat.reviews.each do |review| %>
@@ -76,7 +74,7 @@
 <br><br><br><br><br><br><br><br>
 
 <div>
-  <h2>Check Other Boats:</h2>
+  <h2>Check other boats:</h2>
 </div>
 
 <div class="recom">
