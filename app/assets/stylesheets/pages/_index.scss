@@ -2,30 +2,45 @@
 @import "home";
 @import "booking";
 
+@font-face {
+  font-family: 'Notera_PersonalUseOnly';
+  src: url('./fonts/Notera.ttf')
+}
+
+
 .container-main {
   display: flex;
+  margin-top: 24px;
 }
 
 body {
-  background-color: #ffffff;
+  // background-color: #ffffff;
+  background-image: linear-gradient(to right, #15476a, #7092aa);
 }
 
 .font {
   font-family: 'Bodoni Moda', serif;
 }
 
-#handwriting {
-  font-family: 'Herr Von Muellerhoff', cursive;
-  font-size: 62px;
-  color: #1d547c;
+.font2 {
+  font-family: 'Playfair Display', serif;
 }
+
+#handwriting {
+  display: inline;
+  font-family: 'Monsieur La Doulaise', cursive;
+  font-size: 62px;
+  color: #ffffff;
+}
+
 
 .handwriting-index {
   width: 440px;
 }
 
 .h3-index {
-  color: #0b254e;
+  display: inline;
+  color: #ffffff;
   font-weight: bold;
   margin-bottom: 24px;
   font-size: 30px;

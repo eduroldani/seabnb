@@ -1,59 +1,71 @@
 <div style="margin-top: 2%">
 
- <li class="list-group-item form-owner mb-2">
-      <h1><strong><%= @boat.name %></strong></h1>
-      <p>Owner: <% if @boat.user[:first_name].nil? %>
-      <%= "Missing Name" %>
-      <% else %>
-      <%=  @boat.user[:first_name]  %>
-      <% end %> </p>
-      <% if current_user == @boat.user %>
-        <%= link_to 'Edit This Boat', edit_boat_path(@boat), class: 'btn btn-secondary' %>
-        <%= link_to "Remove Boat",
-                  boat_path(@boat),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" }, class: 'btn btn-secondary'%>
-        <%= link_to 'Go Back', profiles_boats_path, class: 'btn btn-secondary'%>
-      <% else %>
-        <%= link_to 'Go Back', boats_path, class: 'btn btn-secondary'%>
-        <%= link_to 'Leave a review', new_boat_review_path(@boat),class: 'btn btn-secondary' %>
+  <li class="list-group-item form-owner mb-2">
+        <h1><strong><%= @boat.name %></strong></h1>
+        <p>Owner: <% if @boat.user[:first_name].nil? %>
+        <%= "Missing Name" %>
+        <% else %>
+        <%=  @boat.user[:first_name]  %>
+        <% end %> </p>
+        <div id="buttons-show">
+          <% if current_user == @boat.user %>
+            <%= link_to 'Edit This Boat', edit_boat_path(@boat), class: 'btn btn-light btn-costom' %>
+            <%= link_to "Remove Boat",
+                      boat_path(@boat),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" }, class: 'btn btn-light btn-costom'%>
+            <%= link_to 'Go Back', profiles_boats_path, class: 'btn btn-light btn-costom'%>
+          <% else %>
+            <%= link_to 'Go Back', boats_path, class: 'btn btn-light btn-costom'%>
+            <%= link_to 'Leave a review', new_boat_review_path(@boat),class: 'btn btn-light btn-costom' %>
+          <% end %>
+        </li>
+      </div>
+
+
+      <% if @boat.photo.attached? %>
+        <%= cl_image_tag @boat.photo.key, class: 'boat-image' %>
       <% end %>
-    </li>
 
+      <div>
+        <h2 id="short-info">Location: <%= @boat.location %> &nbsp || &nbsp Price: <%= @boat.price_per_day %> € per day &nbsp || &nbsp Capacity: <%= @boat.capacity %> tripulants  &nbsp || &nbsp Boat size: <%= @boat.size %> meters &nbsp || &nbsp Max. speed: <%= @boat.max_speed %> km/h</h2>
+      </div>
+      <div>
+      <br>
+        <h2>Boat description:</h2>
+        <h4 id="boat-description"><%= @boat.description %></h4>
+      </div>
 
-    <% if @boat.photo.attached? %>
-      <%= cl_image_tag @boat.photo.key, class: 'boat-image' %>
+  <br><br><br>
+
+<div class="medium">
+  <div class="container-forms">
+    <% if user_signed_in? == false %>
+      <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-secondary'%>
+    <% elsif current_user != @boat.user%>
+      <%= render "bookings/new" %>
     <% end %>
+  </div>
 
-
-<div class="show-container" style="display:flex;">
-    <div class="show-description-info ">
-      <h2>This Boat is located in: <%= @boat.location %> and cost: <%= @boat.price_per_day %> € per day</h2>
-      <h2>Capacity of the boat: <%= @boat.capacity %> tripulants<br> Boat size: <%= @boat.size %> meters<br> Max. speed: <%= @boat.max_speed %> km/h</h2>
-      <h2>Boat Description: <br> <%= @boat.description %></h2>
-    </div>
     <div class="container" style="width:50%; height: 500px;"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @markers.to_json %>"
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 </div>
+  
+</div>
+<br><br><br><br><br><br><br><br>
+<div>
+  <h2>Feeback from previous bookings:</h1>
+</div>
+ <ul class="list-groups" style="display:flex;">
+    <% @boat.reviews.each do |review| %>
+      <li class="list-group-items">
+        <div class="review-div">
+          <div class="list-review-div">
+            "<%= review.content %>"
 
-<br>
-
-<div class="show-container">
-  <ul class="list-groups" style="display:flex;">
-      <% @boat.reviews.each do |review| %>
-        <li class="list-group-items">
-          <div class="review-div">
-            <div class="list-review-div">
-              "<%= review.content %>"
-            </div>
-            <div class="list-review-div">
-              <% review.rating.times do  %>
-                <i class="fa-solid fa-star"></i>
-              <% end %>
-            </div>
           </div>
         </li>
       <% end %>
@@ -72,7 +84,9 @@
 <br>
 
 <div>
-  <h1>Check other cheaper boats :</h1>
+
+  <h2>Check other boats:</h2>
+
 </div>
 
 <div class="recom">
