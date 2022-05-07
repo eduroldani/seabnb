@@ -8,6 +8,15 @@
   text-align: left;
   font-family: "Open Sans", sans-serif;
   padding: 18px 18px 0px;
+
+  ul {
+    padding-left: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+    font-size: 12px;
+  }
 }
 
 .maps {
@@ -39,12 +48,4 @@
       visibility: hidden;
     }
   }
-
-ul {
-  padding-left: 0;
-}
-
-p {
-  margin-bottom: 0;
-
 }
