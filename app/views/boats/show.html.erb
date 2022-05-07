@@ -40,9 +40,8 @@
 
 <div class="medium">
   <div class="container-forms">
-    <% if user_signed_in? == false %>
-      <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-secondary'%>
-    <% elsif current_user != @boat.user%>
+    <% if current_user != @boat.user && user_signed_in? == true%>
+      <%# <% raise %>
       <%= render "bookings/new" %>
     <% end %>
   </div>
@@ -67,7 +66,7 @@
           <div class="list-review-div">
             "<%= review.content %>" <br>
             <% review.rating.times do %>
-            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star orange-color"></i>
             <% end %>
 
           </div>
@@ -80,7 +79,7 @@
 
 <div>
 
-  <h2 class="show-h2">Check other boats:</h2>
+  <h2 class="show-h2">Check the cheapest boats nearby:</h2>
 
 </div>
 
@@ -91,11 +90,13 @@
     <% @boats.each do |boat| %>
       <%= link_to boat_path(boat), class: 'text-decoration' do %>
         <div class="card-recom">
+          <div>
             <% if boat.photo.attached? %>
               <%= cl_image_tag boat.photo.key %>
             <% else %>
              <%= cl_image_tag ("aiftstx1dwmh2dbf1vop88jkxcup") %>
             <% end %>
+          </div>
           <div class="card-recom-info">
               <h4><strong><%= boat.name %></strong></h4>
               <h4><%=boat.price_per_day %> Euros</h4>
@@ -106,7 +107,7 @@
                   <p><span>📏</span><%= boat.size %>m</p>
                   <p><span>⏳</span><%= boat.max_speed%>Km/h</p>
           </div>
-          </div>
+        </div>
         <% end %>
         <% end %>
       <% end %>

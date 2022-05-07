@@ -1,17 +1,16 @@
 <div class="card-info-window">
+
 <% if boat.photo.attached? %>
   <%= cl_image_tag boat.photo.key %>
 <% end%>
-  <% @boats.each do |boat| %>
-    <%= link_to boats_path(boat), class: 'text-decoration' do %>
-    <% end %>
-  <% end %>
-    <ul>
+  <%# <% @boats.each do |boat| %>
+    <%= link_to boat_path(boat), class: 'text-decoration' do %>
+  <%# <% end %>
       <p style="text-align: center"><strong><%= boat.name %></strong></p>
       <br>
       <p> ⚓ <%= boat.location %> </p>
       <p> <small>capacity <%= boat.capacity %>p | size <%= boat.size %>m | speed <%= boat.max_speed %>mph</small></p>
       <br>
       <p style="text-align: right">€<%= boat.price_per_day %> day</p>
-    </ul>
+    <% end %>
 </div>
