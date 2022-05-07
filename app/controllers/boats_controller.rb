@@ -25,7 +25,8 @@ class BoatsController < ApplicationController
     @markers = [{
         lat: @boat.latitude,
         lng: @boat.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { boat: @boat })
+        info_window: render_to_string(partial: "info_window", locals: { boat: @boat }),
+        image_url: helpers.asset_url("anchor2.png")
       }]
 
     @booking = Booking.new

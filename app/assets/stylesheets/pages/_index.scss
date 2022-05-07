@@ -16,7 +16,6 @@
 body {
   // background-color: #ffffff;
   background-image: linear-gradient(to right, #15476a, #7092aa);
-  cursor: url('./images/anchor.png'), auto;
 }
 
 .font {
@@ -45,6 +44,7 @@ body {
   font-weight: bold;
   margin-bottom: 24px;
   font-size: 30px;
+
 }
 
 .Logo-index-oriange {
@@ -63,4 +63,11 @@ body {
 }
 .color-dark-blue{
   color: #0E314A;
+}
+
+
+
+
+.center-text{
+  text-align: center;
 }

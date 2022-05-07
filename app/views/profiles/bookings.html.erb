@@ -16,7 +16,7 @@
                 <p class="color-dark-blue"> <%= booking.boat.location %> </p>
                 <div style="display: flex; justify-content: space-between;">
                   <div>
-                    <p class="color-dark-blue"> Date <%= booking.starting_date %> - <%= booking.ending_date %> | Total Price: <%= booking.total_amount %>$</p>
+                    <p class="color-dark-blue"> Date <%= booking.starting_date %> - <%= booking.ending_date %> | Total Price: <%= booking.total_amount %> € </p>
                     <br>
                      <p class="color-dark-blue"><%= link_to "Cancel Booking",
                       booking_path(booking.id),

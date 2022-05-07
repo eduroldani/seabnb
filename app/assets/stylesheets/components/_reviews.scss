@@ -1,5 +1,7 @@
 .list-groups{
+
   list-style-type: none;
+  padding: 0;
 }
 
 .list-group-items{
@@ -29,4 +31,11 @@
   font-size: 20px;
   font-weight: bold;
   text-align: center;
+  min-height: 100px;
+  color: #0E314A;
+}
+
+
+.orange-color{
+  color: #fea46f;
 }
