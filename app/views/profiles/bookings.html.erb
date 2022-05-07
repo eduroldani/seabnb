@@ -1,13 +1,14 @@
 <h2>Bookings:</h2>
 
 
-<% @bookings.each do |booking| %>
-        <%= link_to boat_path(booking.boat), class: 'text-decoration' do %>
-        <div class="card-boat p-8">
+  <% @bookings.each do |booking| %>
+          <%= link_to boat_path(booking.boat), class: 'text-decoration' do %>
+          <div class="card-boat p-8">
 
-          <% if booking.boat.photo.attached? %>
-            <%= cl_image_tag booking.boat.photo.key %>
-          <% end %>
+            <% if booking.boat.photo.attached? %>
+              <%= cl_image_tag booking.boat.photo.key %>
+            <% end %>
+
 
           <div class="card-boat-infos mb-4">
             <ul class="card-content mb-8">
@@ -25,6 +26,5 @@
                 </div>
             </ul>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
