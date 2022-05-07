@@ -1,8 +1,8 @@
 <div style="margin-top: 2%">
 
   <li class="list-group-item form-owner mb-2">
-        <h1><strong><%= @boat.name %></strong></h1>
-        <p>Owner: <% if @boat.user[:first_name].nil? %>
+        <h1 class="show-h1"><strong><%= @boat.name %></strong></h1>
+        <p class="show-p">Owner: <% if @boat.user[:first_name].nil? %>
         <%= "Missing Name" %>
         <% else %>
         <%=  @boat.user[:first_name]  %>
@@ -28,11 +28,11 @@
       <% end %>
 
       <div>
-        <h2 id="short-info">Location: <%= @boat.location %> &nbsp || &nbsp Price: <%= @boat.price_per_day %> € per day &nbsp || &nbsp Capacity: <%= @boat.capacity %> tripulants  &nbsp || &nbsp Boat size: <%= @boat.size %> meters &nbsp || &nbsp Max. speed: <%= @boat.max_speed %> km/h</h2>
+        <h2 class="show-h2" id="short-info">Location: <%= @boat.location %> &nbsp || &nbsp Price: <%= @boat.price_per_day %> € per day &nbsp || &nbsp Capacity: <%= @boat.capacity %> tripulants  &nbsp || &nbsp Boat size: <%= @boat.size %> meters &nbsp || &nbsp Max. speed: <%= @boat.max_speed %> km/h</h2>
       </div>
       <div>
       <br>
-        <h2>Boat description:</h2>
+        <h2 class="show-h2">Boat description:</h2>
         <h4 id="boat-description"><%= @boat.description %></h4>
       </div>
 
@@ -53,39 +53,34 @@
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 </div>
-  
-</div>
+
+<%# </div> %>
 <br><br><br><br><br><br><br><br>
+
 <div>
-  <h2>Feeback from previous bookings:</h1>
+  <h2 class="show-h2">Feeback from previous bookings:</h2>
 </div>
  <ul class="list-groups" style="display:flex;">
     <% @boat.reviews.each do |review| %>
       <li class="list-group-items">
         <div class="review-div">
           <div class="list-review-div">
-            "<%= review.content %>"
+            "<%= review.content %>" <br>
+            <% review.rating.times do %>
+            <i class="fa-solid fa-star"></i>
+            <% end %>
 
           </div>
         </li>
       <% end %>
     </ul>
-    <div class="medium">
-      <div class="container-forms">
-        <% if user_signed_in? == false %>
-          <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-secondary'%>
-        <% elsif current_user != @boat.user%>
-          <%= render "bookings/new" %>
-        <% end %>
-      </div>
-    </div>
-</div>
+<%# </div> %>
 
 <br>
 
 <div>
 
-  <h2>Check other boats:</h2>
+  <h2 class="show-h2">Check other boats:</h2>
 
 </div>
 
@@ -107,7 +102,7 @@
               <h4><span>📍</span> <%= boat.location %></h4>
           </div>
           <div class="recom-carac">
-                  <p><span>👨‍👨‍👧</span><%=boat.capacity%>p</p>
+                  <p ><span>👨‍👨‍👧</span><%=boat.capacity%>p</p>
                   <p><span>📏</span><%= boat.size %>m</p>
                   <p><span>⏳</span><%= boat.max_speed%>Km/h</p>
           </div>

@@ -1,17 +1,17 @@
-h1 {
+.show-h1 {
   font-size: 36px;
   color: #ffffff;
   font-weight: bold;
   font-family: 'Bodoni Moda', serif;
 }
 
-h2 {
+.show-h2 {
   color: #ffffff;
   font-size: 20px;
   font-family: 'Playfair Display', serif;
 }
 
-p {
+.show-p {
   color: #ffffff;
   font-size: 14px;
   font-family: 'Playfair Display', serif;
@@ -37,9 +37,9 @@ p {
 .container-forms {
   display: block;
   flex-basis:  | auto;
-  h1 {
-    color: black;
-  }
+  // h1 {
+  //   color: black;
+  // }
 }
 
 .form-owner {

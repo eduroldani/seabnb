@@ -16,6 +16,7 @@
 body {
   // background-color: #ffffff;
   background-image: linear-gradient(to right, #15476a, #7092aa);
+  cursor: url('./images/anchor.png'), auto;
 }
 
 .font {
@@ -48,4 +49,18 @@ body {
 
 .Logo-index-oriange {
   width: 46px;
+}
+
+
+.font-playfair{
+  font-family: 'Playfair Display', serif;
+  color: white;
+}
+
+.font-playfair-two{
+  font-family: 'Playfair Display', serif;
+  color: #0E314A;
+}
+.color-dark-blue{
+  color: #0E314A;
 }

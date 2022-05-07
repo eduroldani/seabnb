@@ -19,7 +19,7 @@ export default class extends Controller {
 
   #setInputValue(event) {
     console.log(event.result)
-    this.locationTarget.value = event.result["place_name_en"]
+    this.locationTarget.value = event.result["place_name"]
     // locationTarget? or address // "place_name_en-GB"
   }
 
