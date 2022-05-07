@@ -4,14 +4,15 @@ class BoatsController < ApplicationController
     if params[:query].present?
       @boats = Boat.search_by_name_and_location(params[:query])
     else
-      @boats = Boat.all
+      @boats = Boat.geocoded
     end
+    # @boats = Boat.geocoded
     @markers = @boats.geocoded.map do |boat|
       {
         lat: boat.latitude,
         lng: boat.longitude,
         info_window: render_to_string(partial: "info_window", locals: { boat: boat }),
-        image_url: helpers.asset_url("anchor3.png")
+        image_url: helpers.asset_url("anchor2.png")
       }
     end
   end

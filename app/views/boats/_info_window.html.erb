@@ -1,4 +1,7 @@
 <div class="card-info-window">
+<% if boat.photo.attached? %>
+  <%= cl_image_tag boat.photo.key %>
+<% end %>
   <% @boats.each do |boat| %>
     <%= link_to boats_path(boat), class: 'text-decoration' do %>
     <% end %>
