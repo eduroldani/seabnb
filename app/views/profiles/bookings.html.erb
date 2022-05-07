@@ -1,24 +1,24 @@
-<h2>Bookings:</h2>
-
+<h2 class="font-playfair">Bookings:</h2>
+<div class="color-dark-blue">
 
   <% @bookings.each do |booking| %>
           <%= link_to boat_path(booking.boat), class: 'text-decoration' do %>
-          <div class="card-boat p-8">
+          <div class="card-boat p-8 color-dark-blue">
 
             <% if booking.boat.photo.attached? %>
               <%= cl_image_tag booking.boat.photo.key %>
             <% end %>
 
 
-          <div class="card-boat-infos mb-4">
-            <ul class="card-content mb-8">
-                <h3> <%= booking.boat.name %>⚓</h3>
-                <p> <%= booking.boat.location %> </p>
+          <div class="card-boat-infos mb-4 color-dark-blue"">
+            <ul class="card-content mb-8 color-dark-blue"">
+                <h3 class="color-dark-blue"> <%= booking.boat.name %>⚓</h3>
+                <p class="color-dark-blue"> <%= booking.boat.location %> </p>
                 <div style="display: flex; justify-content: space-between;">
                   <div>
-                    <p> Date <%= booking.starting_date %> - <%= booking.ending_date %> | Total Price: <%= booking.total_amount %>$</p>
+                    <p class="color-dark-blue"> Date <%= booking.starting_date %> - <%= booking.ending_date %> | Total Price: <%= booking.total_amount %>$</p>
                     <br>
-                     <p><%= link_to "Cancel Booking",
+                     <p class="color-dark-blue"><%= link_to "Cancel Booking",
                       booking_path(booking.id),
                       method: :delete,
                       data: { confirm: "Are you sure?" } %></p>
@@ -28,3 +28,4 @@
           </div>
         <% end %>
       <% end %>
+</div>

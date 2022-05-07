@@ -1,15 +1,19 @@
-<%= simple_form_for(@boat) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :location,
-              input_html: { data: { geocoder_target: "location" }, class: "d-none" },
+<div class="font-playfair">
+  <%= simple_form_for(@boat) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :location,
+                  input_html: { data: { geocoder_target: "location" }, class: "d-none" },
+                  wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+    <%= f.input :price_per_day %>
+    <%= f.input :size %>
+    <%= f.input :max_speed %>
+    <%= f.input :capacity %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+  <% end %>
+  <%= link_to "Go Back", profiles_boats_path %>
+</div>
+<%#
+   input_html: { data: { geocoder_target: "location" }, class: "d-none" },
               wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
-  <%= f.input :price_per_day %>
-  <%= f.input :size %>
-  <%= f.input :max_speed %>
-  <%= f.input :capacity %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
-<% end %>
-
-<%= link_to "Go Back", profiles_boats_path %>

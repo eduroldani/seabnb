@@ -35,7 +35,7 @@ class BoatsController < ApplicationController
     if current_user.nil?
       redirect_to new_user_session_path
     else
-    @boat = Boat.new
+      @boat = Boat.new
     end
   end
 

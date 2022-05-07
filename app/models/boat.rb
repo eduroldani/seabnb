@@ -9,7 +9,8 @@ class Boat < ApplicationRecord
   validates :size, presence: true
   validates :max_speed, presence: true
   validates :capacity, presence: true
-  validates :photo, presence: true
+  # validates :photo, presence: true
+  validates :location, presence: true
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
