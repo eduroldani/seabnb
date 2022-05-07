@@ -26,10 +26,10 @@
 
               <div class="card-boat-infos mb-4 font">
                 <ul class="mb-8">
-                    <%= boat.name %>
-                    <p> <%= boat.description %> </p>
-                    <p> ⚓ <%= boat.location %> </p>
-                    <p> capacity <%= boat.capacity %>p | size <%= boat.size %>m | speed <%= boat.max_speed %>mph </p>
+                    ⚓ <%= boat.name %>
+                    <p><%= boat.location %> </p>
+                    <p> Capacity <%= boat.capacity %>p | Size <%= boat.size %>m | Speed <%= boat.max_speed %>mph </p>
+                    <p>Reviews: <%=boat.reviews.count %></p>
                 </ul>
                 <div class="price font">
                     <h2 class="price"> €<%= boat.price_per_day %>/day</h2>

@@ -18,8 +18,16 @@ class BoatsController < ApplicationController
   end
 
   def show
-    @boats = Boat.all
     @boat = Boat.find(params[:id])
+
+    @boats = Boat.where("price_per_day < ?" , @boat.price_per_day)
+
+    @markers = [{
+        lat: @boat.latitude,
+        lng: @boat.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { boat: @boat })
+      }]
+
     @booking = Booking.new
   end
 
@@ -68,7 +76,7 @@ class BoatsController < ApplicationController
 
 
   def boat_params
-    params.require(:boat).permit(:name, :location, :price_per_day, :size, :max_speed, :capacity,  :description, :photo)
+    params.require(:boat).permit(:name, :location, :price_per_day, :size, :max_speed, :capacity, :description, :photo)
   end
 
 
