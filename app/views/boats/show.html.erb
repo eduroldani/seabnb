@@ -47,6 +47,13 @@
     <% end %>
   </div>
 
+    <div class="container" style="width:50%; height: 500px;"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+</div>
+  
 </div>
 <br><br><br><br><br><br><br><br>
 <div>
@@ -58,24 +65,34 @@
         <div class="review-div">
           <div class="list-review-div">
             "<%= review.content %>"
-          </div>
-          <div class="list-review-div">
-            <% review.rating.times do  %>
-              <i class="fa-solid fa-star"></i>
-            <% end %>
-          </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
 
-<br><br><br><br><br><br><br><br>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <div class="medium">
+      <div class="container-forms">
+        <% if user_signed_in? == false %>
+          <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-secondary'%>
+        <% elsif current_user != @boat.user%>
+          <%= render "bookings/new" %>
+        <% end %>
+      </div>
+    </div>
+</div>
+
+<br>
 
 <div>
+
   <h2>Check other boats:</h2>
+
 </div>
 
 <div class="recom">
+    <% if @boats.length == 0 %>
+      <h3>This is the best deal in the Market</h3>
+    <% else %>
     <% @boats.each do |boat| %>
       <%= link_to boat_path(boat), class: 'text-decoration' do %>
         <div class="card-recom">
@@ -95,6 +112,7 @@
                   <p><span>⏳</span><%= boat.max_speed%>Km/h</p>
           </div>
           </div>
-    <% end %>
-    <% end %>
+        <% end %>
+        <% end %>
+      <% end %>
   </div>

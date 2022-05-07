@@ -95,3 +95,10 @@ p {
 #short-info {
   font-size: 16px;
 }
+
+.show-container {
+  display: flex;
+  margin-top: 16px;
+  justify-content:space-between;
+  align-items: stretch;
+}

@@ -9,24 +9,22 @@
               <%= cl_image_tag booking.boat.photo.key %>
             <% end %>
 
-            <div class="card-boat-infos mb-4">
-              <ul class="mb-8">
-                  <%= booking.boat.name %>
-                  <p> <%= booking.boat.description %> </p>
-                  <p> ⚓ <%= booking.boat.location %> </p>
-                  <div style="display: flex; justify-content: space-between;">
-                    <div>
-                      <p> Date <%= booking.starting_date %> - <%= booking.ending_date %> | Total Price: <%= booking.total_amount %>$</p>
-                    </div>
-                    <div>
-                      <p>   <%= link_to "Cancel Booking",
-                        booking_path(booking.id),
-                        method: :delete,
-                        data: { confirm: "Are you sure?" } %></p>
-                    </div>
+
+          <div class="card-boat-infos mb-4">
+            <ul class="card-content mb-8">
+                <h3> <%= booking.boat.name %>⚓</h3>
+                <p> <%= booking.boat.location %> </p>
+                <div style="display: flex; justify-content: space-between;">
+                  <div>
+                    <p> Date <%= booking.starting_date %> - <%= booking.ending_date %> | Total Price: <%= booking.total_amount %>$</p>
+                    <br>
+                     <p><%= link_to "Cancel Booking",
+                      booking_path(booking.id),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %></p>
                   </div>
-              </ul>
-            </div>
+                </div>
+            </ul>
           </div>
         <% end %>
       <% end %>

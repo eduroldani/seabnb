@@ -13,6 +13,7 @@
       </div>
       <% end %>
     </div>
+
   <h3 class="font h3-index hl">More than <%= @boats.count %> amazing boats in your area ... </h3><h3 id="handwriting">  choose your perfect one:</h3>
     <div class="container-main">
       <div class="container-boats font" style="width: 70%">
@@ -28,6 +29,7 @@
                       <%= boat.name %>
                       <p> <%= boat.description %> </p>
                       <p> ⚓ <%= boat.location %> </p>
+                      <p>Reviews: <%=boat.reviews.count %></p>
                       <p> capacity <%= boat.capacity %>p | size <%= boat.size %>m | speed <%= boat.max_speed %>mph </p>
                   </ul>
                   <div class="price font">
